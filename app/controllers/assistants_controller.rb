@@ -5,12 +5,12 @@ class AssistantsController < ApplicationController
   def index
     @assistants = Assistant.all
 
-    render json: @assistants
+    render json: @assistants.as_json(representation: :public)
   end
 
   # GET /assistants/1
   def show
-    render json: @assistant
+    render json: @assistant.as_json(representation: :public)
   end
 
   # POST /assistants

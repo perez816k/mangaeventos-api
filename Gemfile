@@ -19,6 +19,8 @@ gem 'puma', '~> 3.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'awesome_print'
 
+gem 'as_json_representations'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

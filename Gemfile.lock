@@ -39,6 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    as_json_representations (0.4.3)
     awesome_print (1.8.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -111,6 +112,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  as_json_representations
   awesome_print
   byebug
   puma (~> 3.7)

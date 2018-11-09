@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.filter_data(filter_params).paginate(paginate_params)
 
     render json: @events.as_json(representation: :public)
   end
@@ -39,13 +39,22 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def event_params
-      params.require(:event).permit(:name, :description, :date, :location, :address, :price_ti, :price_bus, :state)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def event_params
+    params.require(:event).permit(:name, :description, :date, :location, :address, :price_ti, :price_bus, :state)
+  end
+
+  def filter_params
+    params[:filter]&.permit(:name)
+  end
+
+  def paginate_params
+    params[:page]&.permit(:number, :size)
+  end
+
 end

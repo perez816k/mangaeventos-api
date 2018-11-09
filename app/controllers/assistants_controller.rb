@@ -3,7 +3,7 @@ class AssistantsController < ApplicationController
 
   # GET /assistants
   def index
-    @assistants = Assistant.all
+    @assistants = Assistant.filter_data(filter_params).paginate(paginate_params)
 
     render json: @assistants.as_json(representation: :public)
   end
@@ -39,13 +39,22 @@ class AssistantsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_assistant
-      @assistant = Assistant.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_assistant
+    @assistant = Assistant.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def assistant_params
-      params.require(:assistant).permit(:user_id, :event_id, :pay_entry, :auth_delivered, :auth_revised, :paid_out)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def assistant_params
+    params.require(:assistant).permit(:user_id, :event_id, :pay_entry, :auth_delivered, :auth_revised, :paid_out)
+  end
+
+  def filter_params
+    params[:filter]&.permit(:event_id, :user, :paid_out)
+  end
+
+  def paginate_params
+    params[:page]&.permit(:number, :size)
+  end
+
 end

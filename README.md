@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GET http://localhost:3000/users
 
-Things you may want to cover:
+filter
+    filter[name]=Marcos
+paginate
+    page[number]=1
+    page[size]=10
 
-* Ruby version
 
-* System dependencies
+GET http://localhost:3000/events
 
-* Configuration
+filter
+    filter[name]=Mangafest
+paginate
+    page[number]=1
+    page[size]=10
 
-* Database creation
 
-* Database initialization
+GET http://localhost:3000/assistants
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+filter
+    filter[user]=Marcos
+    filter[event_id]=1
+    filter[paid_out]=[true || false]
+paginate
+    page[number]=1
+    page[size]=10

@@ -21,6 +21,8 @@ gem 'awesome_print'
 
 gem 'as_json_representations'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

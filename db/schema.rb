@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20181109011641) do
+=======
 ActiveRecord::Schema.define(version: 20181107201324) do
+>>>>>>> f356eae0d7ad0ef6aefc04aa696a01c0b5f21bfc
 
   create_table "assistants", force: :cascade do |t|
     t.integer "user_id"
@@ -39,11 +43,19 @@ ActiveRecord::Schema.define(version: 20181107201324) do
   create_table "users", force: :cascade do |t|
     t.text "name"
     t.text "email"
+<<<<<<< HEAD
+=======
     t.text "password"
+>>>>>>> f356eae0d7ad0ef6aefc04aa696a01c0b5f21bfc
     t.text "phone"
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+    t.string "password_digest"
+    t.string "auth_tokens"
+=======
+>>>>>>> f356eae0d7ad0ef6aefc04aa696a01c0b5f21bfc
   end
 
 end

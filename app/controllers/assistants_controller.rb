@@ -1,6 +1,7 @@
 class AssistantsController < ApplicationController
   before_action :set_assistant, only: [:show, :update, :destroy]
-
+  before_action :authenticate!
+  
   # GET /assistants
   def index
     @assistants = Assistant.filter_data(filter_params).paginate(paginate_params)

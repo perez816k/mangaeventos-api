@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-
+  before_action :authenticate!
+  
   # GET /users
   def index
     @users = User.filter_data(filter_params).paginate(paginate_params)
@@ -11,17 +12,6 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     render json: @user.as_json(representation: :public)
-  end
-
-  # POST /users
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
   end
 
   # PATCH/PUT /users/1

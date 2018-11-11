@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
-
+  before_action :authenticate!
+  
   # GET /events
   def index
     @events = Event.filter_data(filter_params).paginate(paginate_params)

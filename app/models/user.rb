@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   has_many :assistants, foreign_key: [:user_id, :event_id]
 
+  include AsJsonRepresentations
+  include RailsJwtAuth::Authenticatable
+
   validates :name, presence: true
   validates :email, presence: true
   validates :password, presence: true
-  validates :birthdate, presence: true
-
-  include AsJsonRepresentations
+  #validates :birthdate, presence: true
 
   representation :public do
     {

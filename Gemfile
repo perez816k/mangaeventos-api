@@ -18,10 +18,19 @@ gem 'puma', '~> 3.7'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'awesome_print'
+<<<<<<< HEAD
 
 gem 'as_json_representations'
 
 gem 'kaminari'
+
+gem 'rails_jwt_auth'
+
+gem 'rails_authorize'
+
+gem "rolify"
+=======
+>>>>>>> f356eae0d7ad0ef6aefc04aa696a01c0b5f21bfc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
